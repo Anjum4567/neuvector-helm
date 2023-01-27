@@ -99,7 +99,7 @@ controller:
     enabled: false
     storageClass: null
   ranchersso:
-    enabled: true
+    enabled: false
   replicas: 3
   resources: {}
   schedulerName: null
