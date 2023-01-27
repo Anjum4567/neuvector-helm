@@ -206,7 +206,7 @@ manager:
 oem: null
 openshift: false
 psp: false
-rbac: false
+rbac: true
 registry: docker.io
 resources: {}
 serviceAccount: neuvector
