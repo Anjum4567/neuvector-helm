@@ -14,5 +14,5 @@ exporter:
     repository: neuvector/prometheus-exporter
     tag: latest
   # changes this to a readonly user !
-  CTRL_USERNAME: admin
-  CTRL_PASSWORD: admin
+  #CTRL_USERNAME: admin
+  #CTRL_PASSWORD: admin
