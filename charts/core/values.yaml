@@ -113,7 +113,7 @@ controller:
     type: RollingUpdate
   tolerations: []
 crdwebhook:
-  enabled: true
+  enabled: false
   type: ClusterIP
 crio:
   enabled: false
