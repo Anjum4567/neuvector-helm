@@ -8,7 +8,7 @@
 
 #crdwebhook:
   #type: ClusterIP
-  apiVersion: catalog.cattle.io/v1
+apiVersion: catalog.cattle.io/v1
 kind: App
 metadata:
   annotations:
