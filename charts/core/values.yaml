@@ -209,5 +209,5 @@ psp: false
 rbac: true
 registry: docker.io
 resources: {}
-serviceAccount: default #neuvector
+serviceAccount: neuvector
 
