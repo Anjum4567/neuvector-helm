@@ -8,4 +8,93 @@ serviceAccount: neuvector
 
 crdwebhook:
   type: ClusterIP
+helmVersion: 3
+  info:
+    description: Install complete
+    
+    
+    readme: "# NeuVector Helm Chart\n\nHelm chart for NeuVector container security's
+      CRD services. NeuVector's CRD (Custom Resource Definition) capture and declare
+      application security policies early in the pipeline, then defined policies can
+      be deployed together with the contaier applications.\n\nBecause the CRD poclies
+      can be deployed before NeuVector's core product, this separate helm chart is
+      created. For the backward compatibility reason, crd.yaml is not removed in the
+      'core' chart. If you use this 'crd' chart, please set 'crdwebhook.enabled' to
+      false in the 'core' chart.\n \n## Configuration\n\nThe following table lists
+      the configurable parameters of the NeuVector chart and their default values.\n\nParameter
+      | Description | Default | Notes\n--------- | ----------- | ------- | -----\n`openshift`
+      | If deploying in OpenShift, set this to true | `false` |\n`serviceAccount`
+      | Service account name for NeuVector components | `default` |\n`crdwebhook.type`
+      | crd webhook type | `ClusterIP` |\n\n---\nContact <support@neuvector.com> for
+      access to Docker Hub and docs.\n\n"
+    status: deployed
+  name: neuvector-crd
+  namespace: cattle-neuvector-system
+  resources:
+  - apiVersion: apiextensions.k8s.io/v1
+    kind: CustomResourceDefinition
+    name: nvsecurityrules.neuvector.com
+  - apiVersion: apiextensions.k8s.io/v1
+    kind: CustomResourceDefinition
+    name: nvclustersecurityrules.neuvector.com
+  - apiVersion: apiextensions.k8s.io/v1
+    kind: CustomResourceDefinition
+    name: nvdlpsecurityrules.neuvector.com
+  - apiVersion: apiextensions.k8s.io/v1
+    kind: CustomResourceDefinition
+    name: nvadmissioncontrolsecurityrules.neuvector.com
+  - apiVersion: apiextensions.k8s.io/v1
+    kind: CustomResourceDefinition
+    name: nvwafsecurityrules.neuvector.com
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    name: neuvector-binding-customresourcedefinition
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    name: neuvector-binding-nvsecurityrules
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    name: neuvector-binding-nvdlpsecurityrules
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    name: neuvector-binding-nvadmissioncontrolsecurityrules
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    name: neuvector-binding-nvwafsecurityrules
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    name: neuvector-binding-customresourcedefinition
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    name: neuvector-binding-nvsecurityrules
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    name: neuvector-binding-nvdlpsecurityrules
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    name: neuvector-binding-nvadmissioncontrolsecurityrules
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    name: neuvector-binding-nvwafsecurityrules
+  - apiVersion: v1
+    kind: Service
+    name: neuvector-svc-crd-webhook
+    namespace: cattle-neuvector-system
+  values:
+    global:
+      cattle:
+        clusterId: c-8clrh
+        clusterName: my-cluster
+        rkePathPrefix: ""
+        rkeWindowsPathPrefix: ""
+        systemDefaultRegistry: ""
+        systemProjectId: p-mfljb
+        url: https://ec2-35-154-96-33.ap-south-1.compute.amazonaws.com
+      systemDefaultRegistry: ""
+  version: 1
+status:
+  observedGeneration: 2
+  summary:
+    state: deployed
+
 
