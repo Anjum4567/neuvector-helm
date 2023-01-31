@@ -10,7 +10,7 @@ oem:
 imagePullSecrets:
 psp: false
 rbac: true
-serviceAccount: default
+serviceAccount: neuvector
 
 controller:
   # If false, controller will not be installed
