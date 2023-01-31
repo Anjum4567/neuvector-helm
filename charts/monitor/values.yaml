@@ -9,7 +9,7 @@ oem:
 
 exporter:
   # If false, exporter will not be installed
-  enabled: false
+  enabled: True
   image:
     repository: neuvector/prometheus-exporter
     tag: latest
