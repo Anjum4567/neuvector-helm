@@ -4,7 +4,7 @@
 
 openshift: false
 
-serviceAccount: 	admin #default #neuvector
+serviceAccount: default	#admin #default #neuvector
 
 crdwebhook:
   type: ClusterIP
